@@ -1,17 +1,26 @@
-class Node<T> {
-    T val;
-    Node<T> next;
+// class Node<T> {
+//     T val;
+//     Node<T> next;
     
-    public Node(T val) {
-      this.val = val;
-      this.next = null;
-    }
-  }
+//     public Node(T val) {
+//       this.val = val;
+//       this.next = null;
+//     }
+//   }
   
   class Source {
     public static <T> boolean linkedListFind(Node<T> head, T target) {
-      // todo
-      return false;
+      boolean isFound = false;
+      Node<T> currentNode = head;
+
+      while (currentNode != null) {
+        if (currentNode.val.equals(target)) {
+          isFound = true;
+        }
+        currentNode = currentNode.next;
+      }
+
+      return isFound;
     }
     
     public static void main(String[] args) {
@@ -26,7 +35,14 @@ class Node<T> {
 
         // a -> b -> c -> d
 
-        System.out.println(Source.linkedListFind(a, "c"));
+        System.out.println(Source.linkedListFind(a, "c"));  // true
+
+        Node<Integer> node1 = new Node<>(42);
+
+        // 42
+
+         // false
+        System.out.println(Source.linkedListFind(node1, 100));  // false
         
     }
 
